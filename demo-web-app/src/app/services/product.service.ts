@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, Observable, of } from 'rxjs';
 import { ProductListDto } from '../models/product-list.model';
 import { ProductDetailDto } from '../models/product-detail.model';
 import { ProductCreateDto } from '../models/product-create.model';
@@ -14,7 +14,15 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   getProducts(page = 1, pageSize = 10): Observable<ProductListDto[]> {
-    return this.http.get<ProductListDto[]>(`${this.baseUrl}?page=${page}&pageSize=${pageSize}`);
+    const params = new HttpParams()
+      .set('page', page)
+      .set('pageSize', pageSize);
+    return this.http.get<ProductListDto[]>(this.baseUrl, { params }).pipe(
+      catchError((error) => {
+        console.error('Error occurred while fetching products:', error);
+        return of([]);
+      })
+    );
   }
 
   getProduct(id: number): Observable<ProductDetailDto> {

@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { ProductDetailDto } from '../../models/product-detail.model';
 import { switchMap } from 'rxjs/operators';
@@ -11,8 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
   selector: 'app-product-details',
   standalone: true,
   imports: [CommonModule, RouterModule, HttpClientModule],
-  templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.scss']
+  templateUrl: './product-detail.component.html'
 })
 export class ProductDetailsComponent implements OnInit {
   private route = inject(ActivatedRoute);

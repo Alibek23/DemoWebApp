@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './product-create.component.html',
-  styleUrls: ['./product-create.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductCreateComponent {
