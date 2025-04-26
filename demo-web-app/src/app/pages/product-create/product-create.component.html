@@ -1,0 +1,30 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Add Product</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="card p-4 shadow-sm">
+    <div class="form-group mb-3">
+      <label for="productName">Product Name</label>
+      <input id="productName" class="form-control" formControlName="productName" [ngClass]="{'is-invalid': form.get('productName')?.invalid && form.get('productName')?.touched}">
+      <div class="invalid-feedback">Product name is required.</div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="supplierId">Supplier ID</label>
+      <input id="supplierId" type="number" class="form-control" formControlName="supplierId" [ngClass]="{'is-invalid': form.get('supplierId')?.invalid && form.get('supplierId')?.touched}">
+      <div class="invalid-feedback">Supplier ID is required.</div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="categoryId">Category ID</label>
+      <input id="categoryId" type="number" class="form-control" formControlName="categoryId" [ngClass]="{'is-invalid': form.get('categoryId')?.invalid && form.get('categoryId')?.touched}">
+      <div class="invalid-feedback">Category ID is required.</div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="unitPrice">Unit Price</label>
+      <input id="unitPrice" type="number" class="form-control" formControlName="unitPrice" [ngClass]="{'is-invalid': form.get('unitPrice')?.invalid && form.get('unitPrice')?.touched}">
+      <div class="invalid-feedback">Unit Price is required.</div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Submit</button>
+  </form>
+</div>
