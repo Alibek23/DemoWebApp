@@ -11,8 +11,7 @@ import { PaginationComponent } from '../../shared/blocks/pagination/pagination.c
   selector: 'app-product-list',
   standalone: true,
   imports: [PaginationComponent, CommonModule, RouterModule, HttpClientModule, FormsModule],
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss']
+  templateUrl: './product-list.component.html'
 })
 export class ProductListComponent implements OnInit {
   private router = inject(Router);
